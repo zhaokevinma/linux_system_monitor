@@ -8,6 +8,13 @@ using std::to_string;
 // DONE: Complete this helper function
 // INPUT: Long int measuring seconds
 // OUTPUT: HH:MM:SS
+string Format::TimeHelper(int time) {
+  if (time < 10) {
+    return '0' + to_string(time);
+  }
+  return to_string(time);
+}
+
 string Format::ElapsedTime(long seconds) {
   int hrs = 0;
   int min = 0;
@@ -19,5 +26,5 @@ string Format::ElapsedTime(long seconds) {
   seconds = seconds%60;
   sec = seconds; 
   
-  return to_string(hrs) + ':' + to_string(min) + ':' + to_string(sec); 
+  return TimeHelper(hrs) + ':' + TimeHelper(min) + ':' + TimeHelper(sec); 
 }

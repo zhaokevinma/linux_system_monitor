@@ -260,7 +260,7 @@ string LinuxParser::Ram(int pid) {
   while(std::getline(stream, line)){
     std::istringstream iss(line);
     while(iss >> token) {
-      if(token == 'vimSize') {
+      if("VmSize:" == token) {
         iss >> memSize;
         return to_string(memSize/1000);
       }
@@ -278,7 +278,7 @@ string LinuxParser::Uid(int pid) {
   while(std::getline(stream, line)){
     std::istringstream iss(line);
     while(iss >> token) {
-      if(token == 'Uid') {
+      if("Uid:" == token) {
         iss >> uid;
         return uid;
       }
